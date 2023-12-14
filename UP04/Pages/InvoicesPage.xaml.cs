@@ -29,23 +29,17 @@ namespace UP04.Pages
 
             dbContext = new ApplicationDbContext();
 
-            var invoices = dbContext.InvoiceProducts
-                .Include(i => i.Product)
-                .Include(i => i.Invoice)
-                .Include(i => i.Invoice.Client)
-                .Include(i => i.Invoice.WarehouseWorker)
-                .ToList();
-
-            var _invoices = dbContext.Invoices
+            var invoices = dbContext.Invoices
                 .Include(i => i.WarehouseWorker)
+                .Include(i => i.Client)
                 .Include(i => i.InvoiceProducts)
                 .ThenInclude(i => i.Product)
                 .ToList();
 
-            invoicesList.ItemsSource = _invoices;
+            getInvoicesList.ItemsSource = invoices.Where(i => i.InvoiceType == "Get");
+            sellInvoicesList.ItemsSource = invoices.Where(i => i.InvoiceType == "Sell");
 
-            getInvoicesDataGrid.ItemsSource = invoices.Where(i => i.Invoice.InvoiceType == "Get");
-            sellInvoicesDataGrid.ItemsSource = invoices.Where(i => i.Invoice.InvoiceType == "Sell");
+
 
         }
     }

@@ -24,8 +24,13 @@ namespace UP04.Pages
             InitializeComponent();
             dbContext = new ApplicationDbContext();
         }
+        
+        private void RegistrationButtonClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RegisterPage());
+        }
 
-        private void LoginButtonClick(object sender, RoutedEventArgs e)
+            private void LoginButtonClick(object sender, RoutedEventArgs e)
         {
             string enteredUsername = loginTextBox.Text;
             string enteredPassword = passwordBox.Password.ToString();
@@ -35,7 +40,7 @@ namespace UP04.Pages
             {
                 MainWindow.currentUser = dbContext.Users
                     .FirstOrDefault(u => u.Login == enteredUsername);
-                NavigationService.Navigate(new MainMenuPage()); ;
+                NavigationService.Navigate(new MainMenuPage()); 
             }
             else
             {

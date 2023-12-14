@@ -1,4 +1,4 @@
-﻿<Page x:Class="UP04.Pages.LoginPage"
+﻿<Page x:Class="UP04.Pages.RegisterPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:UP04.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Оптовый склад «Данстар». Авторизация">
+      Title="RegisterPage">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -19,14 +19,26 @@
             <RowDefinition Height="200*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
+        <TextBlock FontSize="15" Grid.Row="0" Grid.Column="0">
+                    <Hyperlink NavigateUri="LoginPage.xaml">Назад</Hyperlink>
+        </TextBlock>
+
         <Label Content="Оптовый склад «Данстар». Авторизация" FontSize="17" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         <StackPanel Grid.Row="1" Grid.Column="1">
             <Label Content="Логин:" />
-            <TextBox x:Name="loginTextBox" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+            <TextBox x:Name="loginTextBox"  Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+
             <Label Content="Пароль:"/>
             <PasswordBox x:Name="passwordBox" Height="25" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
-            <Button x:Name="loginButton" Content="Войти" FontSize="15" Height="23" Click="LoginButtonClick"/>
-            <Button x:Name="registrationButton" Content="Регистрация" FontSize="15" Height="23" Click="RegistrationButtonClick"/>
+
+            <Label Content="Повторите пароль:"/>
+            <PasswordBox x:Name="checkPasswordBox" Height="25" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+
+            <Label Content="ФИО:" />
+            <TextBox x:Name="fullNameTextBox"  Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+
+            <Button x:Name="registerButton" Content="Зарегистрироваться" FontSize="15" Height="23" Click="registerButtonClick"/>
+
         </StackPanel>
 
     </Grid>
