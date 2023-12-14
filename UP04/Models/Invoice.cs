@@ -6,6 +6,7 @@ namespace UP04.Models;
 public partial class Invoice
 {
     public int Id { get; set; }
+    public string InvoiceType { get; set; }
     public DateTime CreationDate { get; set; } = DateTime.Now;
     public int ClientId { get; set; }
     public Client Client { get; set; } = null!;

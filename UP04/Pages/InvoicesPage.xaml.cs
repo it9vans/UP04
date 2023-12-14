@@ -36,7 +36,16 @@ namespace UP04.Pages
                 .Include(i => i.Invoice.WarehouseWorker)
                 .ToList();
 
-            invoicesDataGrid.ItemsSource = invoices;
+            var _invoices = dbContext.Invoices
+                .Include(i => i.WarehouseWorker)
+                .Include(i => i.InvoiceProducts)
+                .ThenInclude(i => i.Product)
+                .ToList();
+
+            invoicesList.ItemsSource = _invoices;
+
+            getInvoicesDataGrid.ItemsSource = invoices.Where(i => i.Invoice.InvoiceType == "Get");
+            sellInvoicesDataGrid.ItemsSource = invoices.Where(i => i.Invoice.InvoiceType == "Sell");
 
         }
     }

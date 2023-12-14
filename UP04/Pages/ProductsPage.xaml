@@ -23,18 +23,34 @@
                     <Hyperlink NavigateUri="MainMenuPage.xaml">Назад</Hyperlink>
         </TextBlock>
         <TextBlock FontSize="30" HorizontalAlignment="Center" Text="Товары" Grid.Row="0" Grid.Column="1"/>
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <DataGrid x:Name="productsDataGrid" ItemsSource="{Binding}" CanUserResizeColumns="True" AutoGenerateColumns="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Id}" Header="Артикул"/>
-                    <DataGridTextColumn Binding="{Binding FullName}" Header="Наименование полное"/>
-                    <DataGridTextColumn Binding="{Binding ShortName}" Header="Наименование сокращенное"/>
-                    <DataGridTextColumn Binding="{Binding Manufacturer}" Header="Производитель"/>
-                    <DataGridTextColumn Binding="{Binding Supplier.FullName}" Header="Поставщик"/>
-                    <DataGridTextColumn Binding="{Binding Count}" Header="Количество"/>
-                    <DataGridTextColumn Binding="{Binding Price}" Header="Цена"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </StackPanel>
+        <ScrollViewer Grid.Row="1" Grid.Column="1">
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <DataGrid x:Name="productsDataGrid" ItemsSource="{Binding}" CanUserResizeColumns="True" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Id}" Header="Артикул"/>
+                        <DataGridTextColumn Binding="{Binding FullName}" Header="Наименование полное"/>
+                        <DataGridTextColumn Binding="{Binding ShortName}" Header="Наименование сокращенное"/>
+                        <DataGridTextColumn Binding="{Binding Manufacturer}" Header="Производитель"/>
+                        <DataGridTextColumn Binding="{Binding Supplier.FullName}" Header="Поставщик"/>
+                        <DataGridTextColumn Binding="{Binding Count}" Header="Количество"/>
+                        <DataGridTextColumn Binding="{Binding Price}" Header="Цена"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <TextBlock FontSize="30" HorizontalAlignment="Center" Text="Добавление нового товара"/>
+                <TextBlock FontSize="14" HorizontalAlignment="Center" Text="Полное наименование:"/>
+                <TextBox x:Name="fullNameTextBox" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBlock FontSize="14" HorizontalAlignment="Center" Text="Краткое наименование:"/>
+                <TextBox x:Name="shortNameTextBox" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBlock FontSize="14" HorizontalAlignment="Center" Text="Производитель:"/>
+                <TextBox x:Name="manufacturerTextBox" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBlock FontSize="14" HorizontalAlignment="Center" Text="Поставщик:"/>
+                <TextBox x:Name="supplierIdTextBox" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBlock FontSize="14" HorizontalAlignment="Center" Text="Цена:"/>
+                <TextBox x:Name="priceTextBox" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                <Button x:Name="postProductButton" Content="Добавить продукт" FontSize="15" Height="23" Click="PostProductButtonClick"/>
+
+
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

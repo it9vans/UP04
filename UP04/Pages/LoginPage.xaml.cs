@@ -15,19 +15,46 @@ using System.Windows.Shapes;
 
 namespace UP04.Pages
 {
-    /// <summary>
-    /// Interaction logic for LoginPage.xaml
-    /// </summary>
-    public partial class LoginPage : Page
+        public partial class LoginPage : Page
     {
+        private ApplicationDbContext dbContext;
+
         public LoginPage()
         {
             InitializeComponent();
+            dbContext = new ApplicationDbContext();
         }
 
         private void LoginButtonClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MainMenuPage());
+            string enteredUsername = loginTextBox.Text;
+            string enteredPassword = passwordBox.Password.ToString();
+
+
+            if (IsLoginValid(enteredUsername, enteredPassword))
+            {
+                MainWindow.currentUser = dbContext.Users
+                    .FirstOrDefault(u => u.Login == enteredUsername);
+                NavigationService.Navigate(new MainMenuPage()); ;
+            }
+            else
+            {
+                MessageBox.Show("Неправильный логин или пароль. Попробуйте снова.", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private bool IsLoginValid(string username, string password)
+        {
+            if(String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
+            {
+                return false;
+            }
+            var user = dbContext.Users.FirstOrDefault(u => u.Login == username);
+
+            if (user.Password == password)
+                return true;
+            else
+                return false;
         }
     }
 }

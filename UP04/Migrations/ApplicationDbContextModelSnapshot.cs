@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using UP04;
 
 #nullable disable
 
@@ -43,7 +44,7 @@ namespace UP04.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clients");
+                    b.ToTable("Clients", (string)null);
                 });
 
             modelBuilder.Entity("UP04.Models.Invoice", b =>
@@ -72,7 +73,7 @@ namespace UP04.Migrations
 
                     b.HasIndex("WarehouseWorkerId");
 
-                    b.ToTable("Invoices");
+                    b.ToTable("Invoices", (string)null);
                 });
 
             modelBuilder.Entity("UP04.Models.InvoiceProduct", b =>
@@ -98,7 +99,7 @@ namespace UP04.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("InvoiceProducts");
+                    b.ToTable("InvoiceProducts", (string)null);
                 });
 
             modelBuilder.Entity("UP04.Models.Product", b =>
@@ -134,7 +135,7 @@ namespace UP04.Migrations
 
                     b.HasIndex("SupplierId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("UP04.Models.Supplier", b =>
@@ -159,7 +160,7 @@ namespace UP04.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Suppliers");
+                    b.ToTable("Suppliers", (string)null);
                 });
 
             modelBuilder.Entity("UP04.Models.User", b =>
@@ -184,7 +185,7 @@ namespace UP04.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("UP04.Models.Warehouse", b =>
@@ -206,7 +207,7 @@ namespace UP04.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Warehouses");
+                    b.ToTable("Warehouses", (string)null);
                 });
 
             modelBuilder.Entity("UP04.Models.Invoice", b =>

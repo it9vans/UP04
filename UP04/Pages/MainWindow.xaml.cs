@@ -12,17 +12,12 @@ using UP04.Models;
 
 namespace UP04.Pages
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public static Frame instance { get; set; }
 
         public static Page loginPage = new LoginPage();
-        
-
-        
+        public static User currentUser { get; set; } = new User();
 
         public MainWindow()
         {

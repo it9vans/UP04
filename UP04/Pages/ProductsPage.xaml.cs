@@ -13,15 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UP04.Models;
 
 namespace UP04.Pages
 {
-    /// <summary>
-    /// Interaction logic for BoughtProductsPage.xaml
-    /// </summary>
-    /// 
-
-
     public partial class ProductsPage : Page
     {
         private ApplicationDbContext dbContext;
@@ -37,6 +32,50 @@ namespace UP04.Pages
                 .ToList();
 
             productsDataGrid.ItemsSource = products;
+        }
+
+        private void PostProductButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (IsPostProductValid(fullNameTextBox.Text, shortNameTextBox.Text, manufacturerTextBox.Text, Convert.ToInt32(supplierIdTextBox.Text), Convert.ToInt32(priceTextBox.Text)))
+            {
+                Product newProduct = new Product
+                {
+                    FullName = fullNameTextBox.Text,
+                    ShortName = shortNameTextBox.Text,
+                    Manufacturer = manufacturerTextBox.Text,
+                    SupplierId = Convert.ToInt32(supplierIdTextBox.Text),
+                    Price = Convert.ToInt32(priceTextBox.Text)
+                };
+                dbContext.Products.Add(newProduct);
+                dbContext.SaveChanges();
+                MessageBox.Show("Товар добавлен в базу данных", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                NavigationService.Navigate(new ProductsPage());
+            }
+            else
+            {
+                MessageBox.Show("Введены неверные данные!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private bool IsPostProductValid(string fullName, string shortName, string manufacturer, int supplierId, int count)
+        {
+            if (String.IsNullOrWhiteSpace(fullName) || String.IsNullOrWhiteSpace(shortName) || String.IsNullOrWhiteSpace(manufacturer))
+            {
+                return false;
+            }
+            if(supplierId <= 0 || count <= 0)
+            {
+                return false;
+            }
+            if (dbContext.Suppliers.Any(p => p.FullName == fullName))
+            {
+                return false;
+            }
+            if (!dbContext.Suppliers.Any(p => p.Id == supplierId))
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
