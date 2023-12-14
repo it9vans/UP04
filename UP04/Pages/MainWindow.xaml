@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UP04"
         mc:Ignorable="d"
-        Title="Оптовый склад «Большая бочка»" Height="450" Width="800"
+        Title="Оптовый склад «Данстар»" Height="450" Width="800"
         Background="GhostWhite">
     <Grid>
         <Grid.ColumnDefinitions>

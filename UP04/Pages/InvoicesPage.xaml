@@ -25,50 +25,74 @@
         <TextBlock FontSize="30" HorizontalAlignment="Center" Text="Накладные" Grid.Row="0" Grid.Column="1"/>
         <ScrollViewer Grid.Row="1" Grid.Column="1">
             <StackPanel Grid.Row="1" Grid.Column="1">
-                <TextBlock FontSize="20" HorizontalAlignment="Center" Text="Приходные накладные" Grid.Row="0" Grid.Column="1"/>
-                <ListBox Name="getInvoicesList">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                                <TextBlock FontSize="16"  Text="{Binding Id, StringFormat=Номер: {0}}" Grid.Row="0" Grid.Column="1"/>
-                                <TextBlock FontSize="16"  Text="{Binding CreationDate, StringFormat=Дата: {0}}" Grid.Row="0" Grid.Column="1"/>
-                                <TextBlock FontSize="16"  Text="{Binding Client.FullName, StringFormat=Клиент: {0}}" Grid.Row="0" Grid.Column="1"/>
-                                <DataGrid ItemsSource="{Binding InvoiceProducts}" CanUserResizeColumns="True" AutoGenerateColumns="False">
-                                    <DataGrid.Columns>
-                                        <DataGridTextColumn Binding="{Binding Product.FullName}" Header="Товар"/>
-                                        <DataGridTextColumn Binding="{Binding Product.Price}" Header="Сумма"/>
-                                    </DataGrid.Columns>
-                                </DataGrid>
-                                <TextBlock FontSize="16" Text="{Binding TotalPrice, StringFormat=Общая сумма: {0}}" Grid.Row="0" Grid.Column="1"/>
-                                <TextBlock FontSize="16" Text="{Binding WarehouseWorker.FullName, StringFormat=Кладовщик: {0}}" Grid.Row="0" Grid.Column="1"/>
-                                <TextBlock FontSize="10" Text=""/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-                <TextBlock FontSize="20" Text=""/>
-                <TextBlock FontSize="20" HorizontalAlignment="Center" Text="Расходные накладные" Grid.Row="0" Grid.Column="1"/>
-                <ListBox Name="sellInvoicesList">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                                <TextBlock FontSize="16"  Text="{Binding Id, StringFormat=Номер: {0}}" Grid.Row="0" Grid.Column="1"/>
-                                <TextBlock FontSize="16"  Text="{Binding CreationDate, StringFormat=Дата: {0}}" Grid.Row="0" Grid.Column="1"/>
-                                <TextBlock FontSize="16"  Text="{Binding Client.FullName, StringFormat=Клиент: {0}}" Grid.Row="0" Grid.Column="1"/>
-                                <DataGrid ItemsSource="{Binding InvoiceProducts}" CanUserResizeColumns="True" AutoGenerateColumns="False">
-                                    <DataGrid.Columns>
-                                        <DataGridTextColumn Binding="{Binding Product.FullName}" Header="Товар"/>
-                                        <DataGridTextColumn Binding="{Binding Product.Price}" Header="Сумма"/>
-                                    </DataGrid.Columns>
-                                </DataGrid>
-                                <TextBlock FontSize="16" Text="{Binding TotalPrice, StringFormat=Общая сумма: {0}}" Grid.Row="0" Grid.Column="1"/>
-                                <TextBlock FontSize="16" Text="{Binding WarehouseWorker.FullName, StringFormat=Кладовщик: {0}}" Grid.Row="0" Grid.Column="1"/>
-                                <TextBlock FontSize="10" Text=""/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                <StackPanel>
+                    <TextBlock FontSize="20" HorizontalAlignment="Center" Text="Приходные накладные" Grid.Row="0" Grid.Column="1"/>
+                    <ListBox Name="getInvoicesList">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                                    <TextBlock FontSize="16"  Text="{Binding Id, StringFormat=Номер: {0}}" Grid.Row="0" Grid.Column="1"/>
+                                    <TextBlock FontSize="16"  Text="{Binding CreationDate, StringFormat=Дата: {0}}" Grid.Row="0" Grid.Column="1"/>
+                                    <TextBlock FontSize="16"  Text="{Binding Client.FullName, StringFormat=Клиент: {0}}" Grid.Row="0" Grid.Column="1"/>
+                                    <DataGrid ItemsSource="{Binding InvoiceProducts}" CanUserResizeColumns="True" AutoGenerateColumns="False">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Binding="{Binding Product.FullName}" Header="Товар"/>
+                                            <DataGridTextColumn Binding="{Binding Product.Price}" Header="Сумма"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                    <TextBlock FontSize="16" Text="{Binding TotalPrice, StringFormat=Общая сумма: {0}}" Grid.Row="0" Grid.Column="1"/>
+                                    <TextBlock FontSize="16" Text="{Binding WarehouseWorker.FullName, StringFormat=Кладовщик: {0}}" Grid.Row="0" Grid.Column="1"/>
+                                    <TextBlock FontSize="10" Text=""/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <TextBlock FontSize="20" Text=""/>
+                    <TextBlock FontSize="20" HorizontalAlignment="Center" Text="Расходные накладные" Grid.Row="0" Grid.Column="1"/>
+                    <ListBox Name="sellInvoicesList">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                                    <TextBlock FontSize="16"  Text="{Binding Id, StringFormat=Номер: {0}}" Grid.Row="0" Grid.Column="1"/>
+                                    <TextBlock FontSize="16"  Text="{Binding CreationDate, StringFormat=Дата: {0}}" Grid.Row="0" Grid.Column="1"/>
+                                    <TextBlock FontSize="16"  Text="{Binding Client.FullName, StringFormat=Клиент: {0}}" Grid.Row="0" Grid.Column="1"/>
+                                    <DataGrid ItemsSource="{Binding InvoiceProducts}" CanUserResizeColumns="True" AutoGenerateColumns="False">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Binding="{Binding Product.FullName}" Header="Товар"/>
+                                            <DataGridTextColumn Binding="{Binding Product.Price}" Header="Сумма"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                    <TextBlock FontSize="16" Text="{Binding TotalPrice, StringFormat=Общая сумма: {0}}" Grid.Row="0" Grid.Column="1"/>
+                                    <TextBlock FontSize="16" Text="{Binding WarehouseWorker.FullName, StringFormat=Кладовщик: {0}}" Grid.Row="0" Grid.Column="1"/>
+                                    <TextBlock FontSize="10" Text=""/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Клиент:" />
+                    <TextBox x:Name="clientTextBox" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+
+                    <Label Content="Добавляемые товары:" />
+
+                    <DataGrid x:Name="addableProductsDataGrid" ItemsSource="{Binding}" CanUserResizeColumns="True" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Product.FullName}" Header="Товар"/>
+                            <DataGridTextColumn Binding="{Binding Product.Price}" Header="Сумма"/>
+                            <DataGridTextColumn Binding="{Binding ProductCount}" Header="Кол-во"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Content="Товар:" />
+                    <TextBox x:Name="productTextBox" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                    <Label Content="Кол-во:" />
+                    <TextBox x:Name="countTextBox" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                    <Button x:Name="addProductButton" Content="Добавить товар" FontSize="15" Height="23" Click="AddProductButtonClick"/>
+                    <Button x:Name="addInvoiceButton" Content="Создать накладную" FontSize="15" Height="23" Click="AddInvoiceButtonClick"/>
+                </StackPanel>
             </StackPanel>
+            
         </ScrollViewer>
     </Grid>
 </Page>
