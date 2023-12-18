@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:UP04.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Оптовый склад «Большая бочка»: Меню">
+      Title="Оптовый склад «Данстар»: Меню">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -19,7 +19,7 @@
             <RowDefinition Height="200*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
-        <TextBlock FontSize="30" HorizontalAlignment="Center" Text="Оптовый склад «Большая бочка»" Grid.Row="0" Grid.Column="1"/>
+        <TextBlock FontSize="30" HorizontalAlignment="Center" Text="Оптовый склад «Данстар»" Grid.Row="0" Grid.Column="1"/>
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
                 <Button Content="Доступные товары" FontSize="15" Height="23" Click="ProductsButtonClick"/>
                 <Button Content="Накладные" FontSize="15" Height="23" Click="InvoicesButtonClick"/>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UP04.Models;
 
 namespace UP04.Pages
 {
@@ -32,5 +33,30 @@ namespace UP04.Pages
             suppliersDataGrid.ItemsSource = suppliers;
 
         }
+
+        private void addSupplierButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (String.IsNullOrEmpty(nameTextBox.Text) || String.IsNullOrEmpty(addressTextBox.Text) || String.IsNullOrEmpty(phoneNumberTextBox.Text))
+            {
+                MessageBox.Show($"Все поля должны быть заполнены", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (dbContext.Clients.Any(c => c.FullName == nameTextBox.Text))
+            {
+                MessageBox.Show($"Поставщик с таким наименованием уже создан", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+
+            }
+            Supplier newSupplier = new Supplier
+            {
+                FullName = nameTextBox.Text,
+                Address = addressTextBox.Text,
+                PhoneNumber = phoneNumberTextBox.Text
+            };
+            dbContext.Suppliers.Add(newSupplier);
+            dbContext.SaveChanges();
+            NavigationService.Navigate(new SuppliersPage());
+        }
+
     }
 }

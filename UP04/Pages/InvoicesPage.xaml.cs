@@ -125,7 +125,6 @@ namespace UP04.Pages
                         invoiceProduct.InvoiceId = creatableInvoice.Id;
                         dbContext.InvoiceProducts.Add(invoiceProduct);
                         dbContext.SaveChanges();
-                        MessageBox.Show($"Добавил", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
                 else if (invoiceType == "Get")
@@ -133,10 +132,12 @@ namespace UP04.Pages
                     invoiceProduct.InvoiceId = creatableInvoice.Id;
                     dbContext.InvoiceProducts.Add(invoiceProduct);
                     dbContext.SaveChanges();
-                    MessageBox.Show($"Добавил", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
             }
+            MessageBox.Show($"Накладная успешно сформирована", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+
             sellInvoicesList.Items.Refresh();
             getInvoicesList.Items.Refresh();
 

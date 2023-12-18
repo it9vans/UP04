@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UP04.Models;
 
 namespace UP04.Pages
 {
@@ -32,6 +33,30 @@ namespace UP04.Pages
 
             clientsDataGrid.ItemsSource = clients;
 
+        }
+
+        private void addClientButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (String.IsNullOrEmpty(nameTextBox.Text) || String.IsNullOrEmpty(addressTextBox.Text) || String.IsNullOrEmpty(phoneNumberTextBox.Text))
+            {
+                MessageBox.Show($"Все поля должны быть заполнены", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (dbContext.Clients.Any(c => c.FullName == nameTextBox.Text))
+            {
+                MessageBox.Show($"Клиент с таким ФИО/наименованием уже создан", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+
+            }
+            Client newClient = new Client
+            {
+                FullName = nameTextBox.Text,
+                Address = addressTextBox.Text,
+                PhoneNumber = phoneNumberTextBox.Text
+            };
+            dbContext.Clients.Add(newClient);
+            dbContext.SaveChanges();
+            NavigationService.Navigate(new ClientsPage());
         }
     }
 }

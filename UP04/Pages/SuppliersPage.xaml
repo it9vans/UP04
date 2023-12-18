@@ -32,6 +32,14 @@
                     <DataGridTextColumn Binding="{Binding PhoneNumber}" Header="Телефон"/>
                 </DataGrid.Columns>
             </DataGrid>
+            <Label Content="Наименование поставщика:" />
+            <TextBox x:Name="nameTextBox" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+            <Label Content="Адрес:" />
+            <TextBox x:Name="addressTextBox" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+            <Label Content="Номер телефона:" />
+            <TextBox x:Name="phoneNumberTextBox" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+            <Button x:Name="addSupplierButton" Content="Добавить клиента" FontSize="15" Height="23" Click="addSupplierButtonClick"/>
+
         </StackPanel>
     </Grid>
 </Page>
