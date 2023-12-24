@@ -25,6 +25,8 @@
                 <Button Content="Накладные" FontSize="15" Height="23" Click="InvoicesButtonClick"/>
                 <Button Content="Клиенты" FontSize="15" Height="23" Click="ClientsButtonClick"/>
                 <Button Content="Поставщики" FontSize="15" Height="23" Click="SuppliersButtonClick"/>
+                <Button Content="Склады" FontSize="15" Height="23" Click="WarehousesButtonClick"/>
+
         </StackPanel>
     </Grid>
 </Page>

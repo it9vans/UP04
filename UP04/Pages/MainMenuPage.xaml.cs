@@ -41,6 +41,11 @@ namespace UP04.Pages
         {
             NavigationService.Navigate(new SuppliersPage());
         }
+        private void WarehousesButtonClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new WarehousesPage());
+        }
+
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 
@@ -27,7 +28,7 @@ namespace UP04.Pages
 
             if (IsLoginValid(enteredUsername, enteredPassword))
             {
-                MainWindow.currentUser = dbContext.Users
+                MainWindow.currentUser = dbContext.Users.Include(u => u.Role)
                     .FirstOrDefault(u => u.Login == enteredUsername);
                 NavigationService.Navigate(new MainMenuPage()); 
             }
